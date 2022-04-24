@@ -1,5 +1,5 @@
-#include <iostream>
-using namespace std;
+
+
 
 //int main()
 //{
@@ -264,9 +264,139 @@ using namespace std;
 //	return 0;
 //}
 
+//#include "通讯录.h"
+#include <iostream>
+using namespace std;
+//
+//void meau()
+//{
+//	cout << "***************************" << endl;
+//	cout << "***   1.添加联系人   *******" << endl;
+//	cout << "***   2.删除联系人   *******" << endl;
+//	cout << "***   3.显示联系人   *******" << endl;
+//	cout << "***   4.查找联系人   *******" << endl;
+//	cout << "***   5.修改联系人   *******" << endl;
+//	cout << "***   6.清空联系人   *******" << endl;
+//	cout << "***   0.退出通讯录   *******" << endl;
+//	cout << "***************************" << endl;
+//
+//}
+//int main()
+//{
+//	PeoInfo person[MAX];
+//	int select = 0;
+//	Init(person);
+//	do
+//	{
+//		meau();
+//		cin >> select;
+//		switch (select)
+//		{
+//		case 1:
+//			Add(person);
+//			break;
+//		case 2:
+//			Div(person);		
+//			break;
+//		case 3:
+//			Show(person);
+//			break;
+//		case 4:
+//			Serch(person);
+//			break;
+//		case 5:
+//			Mod(person);
+//			break;
+//		case 6:
+//			Clean(person);
+//			break;
+//		case 0:
+//			break;
+//		default:
+//			cout << "输入错误，请重新输入" << endl;
+//			break;
+//		}
+//		system("pause");
+//		system("cls");
+//	} while (select);
+//	cout << "欢迎下次使用" << endl;
+//	return 0;
+//}
+
+//int* judy()
+//{
+//	int* p = new int(10086);
+//	return p;
+//}
+//
+//int main()
+//{
+//	int*p = judy();
+//	cout << p << endl;
+//	cout << *p << endl;
+//	delete p;
+//	cout << *p << endl;
+//	return 0;
+//}
+//
+//int* Function()
+//{
+//	int* p = new int[10];
+//	return p;
+//}
+//
+//int main()
+//{
+//	int* p = Function();
+//	for (int i = 0; i < 10; i++)
+//		p[i] =  10 - i;
+//	for (int i = 0; i < 10; i++)
+//		cout << p[i] << " ";
+//	delete[] p;
+//	return 0;
+//}int 
+
+//
+//int main()
+//{
+//	int a = 10;
+//	int* p = &a;
+//	int& b = a; 
+//	*p = 20;
+//	cout << &b << endl;
+//	cout << &a << endl;
+//	cout << p << endl; 
+//	return 0;
+//}
+//
+//void swap(int& a, int& b)
+//{
+//	int temp = a;
+//	a = b;
+//	b = temp;
+//}
+//
+//int main()
+//{
+//	int a = 10;
+//	int b = 20;
+//	swap(a, b);
+//	cout << a << " " << b << endl;
+//	return 0;
+//}
+
+int& test()
+{
+	static int a = 10;
+	return a;
+}
 
 int main()
 {
-
+	int& res = test();
+	cout << res << endl;
+	test() = 100;
+	cout << res << endl;
+	//cout << a << endl;
 	return 0;
 }
