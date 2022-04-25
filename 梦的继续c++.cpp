@@ -384,19 +384,71 @@ using namespace std;
 //	cout << a << " " << b << endl;
 //	return 0;
 //}
+//
+//int& test()
+//{
+//	static int a = 10;
+//	return a;
+//}
+//
+//int main()
+//{
+//	int& res = test();
+//	cout << res << endl;
+//	test() = 100;
+//	cout << res << endl;
+//	//cout << a << endl;
+//	return 0;
+//}
 
-int& test()
+//int main()
+//{
+//	int a = 10;
+//	int& res = a;
+//	res = 20;
+//	int b = 30;
+//	res = b;
+//	cout << res << endl;
+//	cout << a;
+//	int* const ret = &a;
+//	*ret = b;
+//	cout << *ret;
+//	return 0;
+//}
+//
+//int Func(int a, int b = 20, int c = 30)
+//{
+//	return a + b + c;
+//}
+//
+//int Func(int a,int,int)
+//{
+//	return 50;
+//}
+//
+//int Func(int a)
+//{
+//	return 60;
+//}
+//
+//int main()
+//{
+//	cout << Func(10,30,20) << endl;
+//	return 0;
+//}
+
+void Func(int a, char c)
 {
-	static int a = 10;
-	return a;
+	cout << 10;
+}
+
+void Func(char c, int a)
+{
+	cout << 20;
 }
 
 int main()
 {
-	int& res = test();
-	cout << res << endl;
-	test() = 100;
-	cout << res << endl;
-	//cout << a << endl;
+	Func( '0',20);
 	return 0;
 }
