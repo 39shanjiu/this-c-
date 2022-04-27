@@ -436,19 +436,78 @@ using namespace std;
 //	cout << Func(10,30,20) << endl;
 //	return 0;
 //}
+//
+//void Func(int a, char c)
+//{
+//	cout << 10;
+//}
+//
+//void Func(char c, int a)
+//{
+//	cout << 20;
+//}
+//
+//int main()
+//{
+//	Func( '0',20);
+//	return 0;
+//}
 
-void Func(int a, char c)
-{
-	cout << 10;
-}
+//const double PI = 3.14;
+//
+//class Circle
+//{
+//	//访问权限
+//public:
+//	//属性  半径
+//	int m_r;
+//	// 行为 获取圆的周长
+//	double calculatrZC()
+//	{
+//		return 2 * PI * m_r;
+//	}
+//};
+//
+//int main()
+//{
+//	//通过圆类，创建具体的圆（对象）
+//	//实例化 （通过一个类 创建一个对象的过程）
+//	Circle c1;
+//	//给圆对象的属性进行赋值。
+//	c1.m_r = 10;
+//	cout << c1.calculatrZC() << endl;
+//	return 0;
+//}
 
-void Func(char c, int a)
+class student
 {
-	cout << 20;
-}
+public:
+	int stu;
+	string name;
+	int showstu()
+	{
+		return stu;
+	}
+protected:
+	string showStu()
+	{
+		return name;
+	}
+private:
+	void setname(string n)
+	{
+		name = n;
+	}
+
+};
 
 int main()
 {
-	Func( '0',20);
+	student s1;
+	//s1.name = "张三";
+	s1.setname("张三");
+	s1.stu = 202129;
+	cout << s1.showstu() << endl;
+	cout << s1.showStu() << endl;
 	return 0;
 }
