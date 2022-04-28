@@ -1,6 +1,3 @@
-
-
-
 //int main()
 //{
 //	int aum = 68;
@@ -479,35 +476,348 @@ using namespace std;
 //	return 0;
 //}
 
-class student
+//class student
+//{
+//public:
+//	int stu;
+//	string name;
+//	void Setname()
+//	{
+//
+//	}
+//	int showstu()
+//	{
+//		return stu;
+//	}
+//protected:
+//	string showStu()
+//	{
+//		return name;
+//	}
+//private:
+//	void setname(string n)
+//	{
+//		name = n;
+//	}
+//
+//};
+//
+//int main()
+//{
+//	student s1;
+//	//s1.name = "张三";
+//	s1.setname("张三");
+//	s1.stu = 202129;
+//	cout << s1.showstu() << endl;
+//	cout << s1.showStu() << endl;
+//	return 0;
+//}
+//
+//class Cube
+//{
+//public:
+//	int l;
+//	int h;
+//	int w;
+//	int forS()
+//	{
+//		return (l * h + l * w + h * w) * 2;
+//	}
+//	int V()
+//	{
+//		return l * h * w;
+//	}
+//};
+
+
+//class Cube
+//{
+//public:
+	//void set_h(int H)
+	//{
+	//	h = H;
+ //   }
+	//int get_h()
+	//{
+	//	return h;
+	//}
+	//void set_l(int L)
+	//{
+	//	l = L;
+	//}
+	//int get_l()
+	//{
+	//	return l;
+	//}
+	//void set_w(int W)
+	//{
+	//	w = W;
+	//}
+	//int get_w()
+	//{
+	//	return w;
+	//}
+//	int calculateS()
+//	{
+//		return (l * h + l * w + w * h) * 2;
+//	}
+//	int calculateV()
+//	{
+//		return l * w * h;
+//	}
+//	bool isSameByClass(Cube &c2)
+//	{
+//		if (get_h() == c2.get_h() && get_l() == c2.get_l() && get_w() == c2.get_w())
+//			return 1;
+//		else
+//			return 0;
+//	}
+//private:
+//	int h;
+//	int l;
+//	int w;
+//};
+//
+//bool isSame(Cube c1, Cube c2)
+//{
+//	if (c1.get_h() == c2.get_h() && c1.get_l() == c2.get_l() && c1.get_w() == c2.get_w())
+//		return 1;
+//	else
+//		return 0;
+//}
+//
+//int main()
+//{
+//	Cube c1;
+//	c1.set_h(10);
+//	c1.set_l(10);
+//	c1.set_w(10);
+//
+//	cout << c1.calculateS() << endl;
+//	cout << c1.calculateV() << endl;
+//
+//	Cube c2;
+//	c2.set_h(10);
+//	c2.set_l(10);
+//	c2.set_w(10);
+//	bool flag = isSame(c1, c2);
+//	bool f = c1.isSameByClass(c2);
+//	cout << flag << endl;
+//	cout << f << endl;
+//	return 0;
+//}
+
+//#include "类.h"
+//
+//
+//class Circle
+//{
+//public:
+//	void set_x(int X)
+//	{
+//		c.set_x(X);
+//	}
+//	void set_Y(int Y)
+//	{
+//		c.set_y(Y);
+//	}
+//	void set_r(int R)
+//	{
+//		r = R;
+//	}/*
+//	int get_r()
+//	{
+//		return r;
+//	}
+//
+//	int Decide_Cir_Poi(Point po)
+//	{
+//		int X = ((po.get_x() - c.get_x()) * (po.get_x() - c.get_x()));
+//		int Y = (po.get_y() - c.get_y()) * (po.get_y() - c.get_y());
+//		if (X + Y > r * r)
+//			return 1;
+//		else if (X + Y == r * r)
+//			return 0;
+//		else
+//			return -1;
+//	}
+//
+//private:
+//	int r;
+//	Point c;
+//};
+//
+//
+//
+//int main()
+//{
+//	Circle c1;
+//	c1.set_x(0);
+//	c1.set_Y(0);
+//	c1.set_r(5);
+//	Point D1;
+//	D1.set_x(5);
+//	D1.set_y(0);
+//	int flag = c1.Decide_Cir_Poi(D1);
+//		cout << flag << endl;
+//
+//	return 0;
+//}*/
+//
+//class Person
+//{
+//public:
+//	Person(int a)
+//	{
+//		cout << 1234 << endl;
+//	}
+//	Person()
+//	{
+//		cout << 123 << endl;
+//	}
+//	
+//	~Person()
+//	{
+//		cout << 321 << endl;
+//	}
+//private:
+//	
+//};
+//
+//int main()
+//{
+//	Person p1;
+//
+//	return 0;
+//}
+
+
+
+//
+//void test01()
+//{
+
+	/*Person p1(10);
+	cout << p1.age << endl;
+	Person p2;
+	Person p3(p1);
+	cout << p3.age << endl;*/
+
+	/*Person p1;
+	Person p2 = Person(10);
+	cout << p2.age << endl;
+	Person p3 = Person(p2);
+	cout << p3.age << endl;
+	p1 = Person(10);
+	cout << p1.age << endl;*/
+
+	/*Person p1 = 10;
+	Person p2 = p1;*/
+
+//}
+//
+//void Do_Work(Person p)
+//{
+//
+//Person  Day1(Person& p)
+//{
+//	Person p1;
+//	return p;
+//}
+
+//Person Day1()
+//{
+//	Person
+//}
+//
+//void test02()
+//{
+//	Person p;
+//	//Do_Work(p);
+//	p = Day1(p);
+//}
+
+//
+//class Person
+//{
+//public:
+//	Person()
+//	{
+//		cout << "无参" << endl;
+//	}
+//	Person(int a,int h)
+//	{
+//		age = a;
+//		height = new int(h);
+//		cout << "有参" << endl;
+//	}
+//	Person(const Person& p)
+//	{
+//		age = p.age;
+//		height = new int(*p.height);
+//		cout << "拷贝" << endl;
+//	}
+//	~Person()
+//	{
+//		if (height != NULL)
+//		{
+//			delete height;
+//			height = NULL;
+//		}
+//	}
+//	int age;
+//
+//	int* height;
+//};
+//
+//
+//void test()
+//{
+//	Person p;
+//
+//	Person p1(18,160);
+//	cout << p1.age << *p1.height << endl;
+//	Person p2(p1);
+//	cout << p2.age << *p2.height << endl;
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+
+class Phone
 {
 public:
-	int stu;
-	string name;
-	int showstu()
+	Phone(string phone):pname(phone)
 	{
-		return stu;
+
 	}
-protected:
-	string showStu()
+	string pname;
+};
+
+class Person
+{
+public:
+	Person(string Name, string phone) :name(Name), m_phone(phone)
 	{
-		return name;
-	}
-private:
-	void setname(string n)
-	{
-		name = n;
 	}
 
+
+	string name;
+	Phone m_phone;
 };
+
+void test()
+{
+	Person p1("张三","iqoo neo 5");
+	cout << p1.name << endl;
+	cout << p1.m_phone.pname << endl;
+}
 
 int main()
 {
-	student s1;
-	//s1.name = "张三";
-	s1.setname("张三");
-	s1.stu = 202129;
-	cout << s1.showstu() << endl;
-	cout << s1.showStu() << endl;
+	test();
 	return 0;
 }
