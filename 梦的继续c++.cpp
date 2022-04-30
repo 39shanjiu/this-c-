@@ -691,565 +691,821 @@
 //}
 
 
-
-
-void test01()
-{
-
-	Person p1(10);
-	cout << p1.age << endl;
-	Person p2;
-	Person p3(p1);
-	cout << p3.age << endl;
-
-	/*Person p1;
-	Person p2 = Person(10);
-	cout << p2.age << endl;
-	Person p3 = Person(p2);
-	cout << p3.age << endl;
-	p1 = Person(10);
-	cout << p1.age << endl;
-
-	Person p1 = 10;
-	Person p2 = p1;*/
-
-
-void Do_Work(Person p)
-{
-
-Person  Day1(Person& p)
-{
-	Person p1;
-	return p;
-}
-
-Person Day1()
-{
-	Person
-}
-
-void test02()
-{
-	Person p;
-	//Do_Work(p);
-	p = Day1(p);
-}
-
-
-class Person
-{
-public:
-	Person()
-	{
-		cout << "无参" << endl;
-	}
-	Person(int a,int h)
-	{
-		age = a;
-		height = new int(h);
-		cout << "有参" << endl;
-	}
-	Person(const Person& p)
-	{
-		age = p.age;
-		height = new int(*p.height);
-		cout << "拷贝" << endl;
-	}
-	~Person()
-	{
-		if (height != NULL)
-		{
-			delete height;
-			height = NULL;
-		}
-	}
-	int age;
-
-	int* height;
-};
-
-
-void test()
-{
-	Person p;
-
-	Person p1(18,160);
-	cout << p1.age << *p1.height << endl;
-	Person p2(p1);
-	cout << p2.age << *p2.height << endl;
-}
-
-int main()
-{
-	test();
-	return 0;
-}
-
-class Phone
-{
-public:
-	Phone(string phone):pname(phone)
-	{
-
-	}
-	string pname;
-};
-
-class Person
-{
-public:
-	Person(string Name, string phone) :name(Name), m_phone(phone)
-	{
-	}
-
-
-	string name;
-	Phone m_phone;
-};
-
-void test()
-{
-	Person p1("张三","iqoo neo 5");
-	cout << p1.name << endl;
-	cout << p1.m_phone.pname << endl;
-}
-
-int main()
-{
-	test();
-	return 0;
-}
-
-class Person
-{
-public:
-
-	static void func()
-	{
-		a = 300;
-
-	}
-
-	int b;
-
-	static int a;
-};
-
-int Person::a = 100;
-
-void test()
-{
-	Person p1;
-	//p1.a = 300;
-	//p1.func();
-	Person::func();
-	cout << p1.a << endl;
-}
-
-int main()
-{
-	test();
-	return 0;
-}
-
-class Person
-{
-public:
-	int a;
-	char c;
-	static int b;
-};
-
-int Person::b = 20;
-
-void test()
-{
-	Person p;
-	cout << sizeof(p) << endl;
-}
-
-int main()
-{
-	test();
-	return 0;
-}
-
-class Person
-{
-public:
-
-	Person(int age)
-	{
-		this -> age = age;
-	}
-
-	Person& personaddage(Person &p)
-	{
-		this -> age += p.age;
-
-		return *this;//返回的是一个类。
-	}
-
-	int age;
-};
-
-void test()
-{
-	Person p(10);
-	cout << p.age << endl;
-	
-	Person p2(10);
-	p2.personaddage(p2).personaddage(p2).personaddage(p2).personaddage(p2);
-	cout << p2.age << endl;
-
-
-}
-
-
-int main()
-{
-	test();
-	return 0;
-}
-
-class Person
-{
-public:
-	void func(int age)const
-	{
-		this->m_age = age;
-	}
-
-	int m_age;
-};
-
-int mian()
-{
-
-	return 0;
-}
-
-class Person
-//{/*
-public:
-	Person()
-	{
-		cout << 1 << endl;
-	}
-	Person(int a)
-	{
-		m_age = a;
-		cout << 2 << endl;
-	}
-	Person(Person& p)
-	{
-		m_age = p.m_age;
-	}
-	int m_age;
-
-};
-void test()
-{
-	Person p;
-	p.m_age = 10;
-	Person p1 = p;
-
-}
-
-int main()
-{
-	test();
-	
-	system("pause");
-	return 0;*/
-}
-
-class Buliding
-{
-	friend void goodGay(Buliding& b);
-public:
-	Buliding()
-	{
-		this->livingroom = "客厅";
-		this->Bedroom = "卧室";
-	}
-public:
-	string livingroom;
-private:
-	string Bedroom;
-};
-
-void goodGay(Buliding &b)
-{
-	cout << b.livingroom << endl;
-	cout << b.Bedroom << endl;
-}
-
-void test()
-{
-	Buliding b;
-	goodGay(b);
-}
-
-
-int main()
-{
-	test();
-	return 0;
-}
-
-class Building;
-class GoodGay
-{
-public:
-	GoodGay();
-	~GoodGay();
-	void visit();
-
-	Building* building;
-};
-
-class Building
-{
-	friend class GoodGay;
-public:
-	Building();
-	string livingroom;
-private:
-	string bedroom;
-};
-
-Building::Building()
-{
-	this->livingroom = "客厅";
-	this->bedroom = "卧室";
-}
-
-GoodGay::GoodGay()
-{
-	building = new Building;
-}
-
-GoodGay::~GoodGay()
-{
-	delete(building);
-}
-
-void GoodGay::visit()
-{
-	cout << building->livingroom << endl;
-	cout << building->bedroom << endl;
-}
-
-void test()
-{
-	GoodGay gg;
-	gg.visit();
-}
-
-int main()
-{
-	test();
-	return 0;
+//
+//
+//void test01()
+//{
+//
+//	Person p1(10);
+//	cout << p1.age << endl;
+//	Person p2;
+//	Person p3(p1);
+//	cout << p3.age << endl;
+//
+//	/*Person p1;
+//	Person p2 = Person(10);
+//	cout << p2.age << endl;
+//	Person p3 = Person(p2);
+//	cout << p3.age << endl;
+//	p1 = Person(10);
+//	cout << p1.age << endl;
+//
+//	Person p1 = 10;
+//	Person p2 = p1;*/
+//
+//
+//void Do_Work(Person p)
+//{
+//
+//Person  Day1(Person& p)
+//{
+//	Person p1;
+//	return p;
 //}
-class GoodGay;
+//
+//Person Day1()
+//{
+//	Person
+//}
+//
+//void test02()
+//{
+//	Person p;
+//	//Do_Work(p);
+//	p = Day1(p);
+//}
+//
+//
+//class Person
+//{
+//public:
+//	Person()
+//	{
+//		cout << "无参" << endl;
+//	}
+//	Person(int a,int h)
+//	{
+//		age = a;
+//		height = new int(h);
+//		cout << "有参" << endl;
+//	}
+//	Person(const Person& p)
+//	{
+//		age = p.age;
+//		height = new int(*p.height);
+//		cout << "拷贝" << endl;
+//	}
+//	~Person()
+//	{
+//		if (height != NULL)
+//		{
+//			delete height;
+//			height = NULL;
+//		}
+//	}
+//	int age;
+//
+//	int* height;
+//};
+//
+//
+//void test()
+//{
+//	Person p;
+//
+//	Person p1(18,160);
+//	cout << p1.age << *p1.height << endl;
+//	Person p2(p1);
+//	cout << p2.age << *p2.height << endl;
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//
+//class Phone
+//{
+//public:
+//	Phone(string phone):pname(phone)
+//	{
+//
+//	}
+//	string pname;
+//};
+//
+//class Person
+//{
+//public:
+//	Person(string Name, string phone) :name(Name), m_phone(phone)
+//	{
+//	}
+//
+//
+//	string name;
+//	Phone m_phone;
+//};
+//
+//void test()
+//{
+//	Person p1("张三","iqoo neo 5");
+//	cout << p1.name << endl;
+//	cout << p1.m_phone.pname << endl;
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//
+//class Person
+//{
+//public:
+//
+//	static void func()
+//	{
+//		a = 300;
+//
+//	}
+//
+//	int b;
+//
+//	static int a;
+//};
+//
+//int Person::a = 100;
+//
+//void test()
+//{
+//	Person p1;
+//	//p1.a = 300;
+//	//p1.func();
+//	Person::func();
+//	cout << p1.a << endl;
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//
+//class Person
+//{
+//public:
+//	int a;
+//	char c;
+//	static int b;
+//};
+//
+//int Person::b = 20;
+//
+//void test()
+//{
+//	Person p;
+//	cout << sizeof(p) << endl;
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//
+//class Person
+//{
+//public:
+//
+//	Person(int age)
+//	{
+//		this -> age = age;
+//	}
+//
+//	Person& personaddage(Person &p)
+//	{
+//		this -> age += p.age;
+//
+//		return *this;//返回的是一个类。
+//	}
+//
+//	int age;
+//};
+//
+//void test()
+//{
+//	Person p(10);
+//	cout << p.age << endl;
+//	
+//	Person p2(10);
+//	p2.personaddage(p2).personaddage(p2).personaddage(p2).personaddage(p2);
+//	cout << p2.age << endl;
+//
+//
+//}
+//
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//
+//class Person
+//{
+//public:
+//	void func(int age)const
+//	{
+//		this->m_age = age;
+//	}
+//
+//	int m_age;
+//};
+//
+//int mian()
+//{
+//
+//	return 0;
+//}
+//
+//class Person
+////{/*
+//public:
+//	Person()
+//	{
+//		cout << 1 << endl;
+//	}
+//	Person(int a)
+//	{
+//		m_age = a;
+//		cout << 2 << endl;
+//	}
+//	Person(Person& p)
+//	{
+//		m_age = p.m_age;
+//	}
+//	int m_age;
+//
+//};
+//void test()
+//{
+//	Person p;
+//	p.m_age = 10;
+//	Person p1 = p;
+//
+//}
+//
+//int main()
+//{
+//	test();
+//	
+//	system("pause");
+//	return 0;*/
+//}
+//
+//class Buliding
+//{
+//	friend void goodGay(Buliding& b);
+//public:
+//	Buliding()
+//	{
+//		this->livingroom = "客厅";
+//		this->Bedroom = "卧室";
+//	}
+//public:
+//	string livingroom;
+//private:
+//	string Bedroom;
+//};
+//
+//void goodGay(Buliding &b)
+//{
+//	cout << b.livingroom << endl;
+//	cout << b.Bedroom << endl;
+//}
+//
+//void test()
+//{
+//	Buliding b;
+//	goodGay(b);
+//}
+//
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//
+//class Building;
+//class GoodGay
+//{
+//public:
+//	GoodGay();
+//	~GoodGay();
+//	void visit();
+//
+//	Building* building;
+//};
+//
+//class Building
+//{
+//	friend class GoodGay;
+//public:
+//	Building();
+//	string livingroom;
+//private:
+//	string bedroom;
+//};
+//
+//Building::Building()
+//{
+//	this->livingroom = "客厅";
+//	this->bedroom = "卧室";
+//}
+//
+//GoodGay::GoodGay()
+//{
+//	building = new Building;
+//}
+//
+//GoodGay::~GoodGay()
+//{
+//	delete(building);
+//}
+//
+//void GoodGay::visit()
+//{
+//	cout << building->livingroom << endl;
+//	cout << building->bedroom << endl;
+//}
+//
+//void test()
+//{
+//	GoodGay gg;
+//	gg.visit();
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+////}
+//class GoodGay;
+//
+//class Building;
+//
+//class GoodGay
+//{
+//public:
+//	GoodGay();
+//	~GoodGay();
+//
+//	void visit1();
+//
+//	void visit2();
+//
+//	Building* building;
+//};
+//void visit();
+//
+//class Building
+//{
+//	friend void GoodGay::visit1();
+//	friend void visit();
+//public:
+//	Building();
+//	string livingroom;
+//private:
+//	string bedroom;
+//};
+//Building::Building()
+//{
+//	this->livingroom = "123";
+//	this->bedroom = "789";
+//}
+//
+//GoodGay::GoodGay()
+//{
+//	building = new (Building);
+//}
+//GoodGay::~GoodGay()
+//{
+//	delete(building);
+//}
+//
+//void GoodGay::visit1()
+//{
+//	cout << building->livingroom << endl;
+//	cout << building->bedroom << endl;
+//}
+//
+//void GoodGay::visit2()
+//{
+//	cout << building->livingroom << endl;
+//}
+//
+//void visit()
+//{
+//	GoodGay gg;
+//	gg.building->livingroom = "234";
+//	gg.building->bedroom = "876";
+//	cout << gg.building->bedroom << endl;
+//}
+//
+//void test()
+//{
+//	GoodGay gg;
+//	gg.visit1();
+//}
+//
+//int main()
+//{
+//	visit();
+//	test();
+//	return 0;
+//}
+//class Person;
+//
+//class Person
+//{
+//public:
+//	//Person operator+ (Person& p)
+//	//{
+//	//	Person temp;//创建的临时变量
+//	//	temp.m_A = this->m_A + p.m_A;//this-》p1 + p2 中的前面一个p1
+//	//	temp.m_B = this->m_B + p.m_B;//p.m_B 就是后面的那个
+//	//	return temp;
+//	//}
+//	int m_A;
+//	int m_B;
+//};
+//
+//Person operator+ (Person& p1, Person& p2)
+//{
+//	Person temp;//创建的临时变量
+//	temp.m_A = p1.m_A + p2.m_A;//this-》p1 + p2 中的前面一个p1
+//	temp.m_B = p1.m_B + p2.m_B;//p.m_B 就是后面的那个
+//	return temp;
+//}p
+//
+//void test()
+//{
+//	Person p1;
+//	p1.m_A = 10;
+//	p1.m_B = 20;
+//	Person p2;
+//	p2.m_A = 100;
+//	p2.m_B = 200;
+//	Person p3 = p1 + p2;
+//	cout << p3.m_A << endl;
+//	cout << p3.m_B << endl;
+//}
+//
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//
 
-class Building;
+//
+//class Person
+//{
+//	friend	ostream& operator<< (ostream& cout, Person& p);
+//public:
+//	Person()
+//	{
+//		this->m_A = 10;
+//		this->m_B = 20;
+//	}
+//private:
+//
+//	int m_A;
+//	int m_B;
+//};
+//
+//ostream& operator<< (ostream &cout ,Person& p)
+//{
+//	cout << p.m_A << endl;
+//	cout << p.m_B << endl;
+//	return cout;
+//}
+//
+//void test()
+//{
+//	Person p;
+//	cout <<  p << endl;
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
 
-class GoodGay
-{
-public:
-	GoodGay();
-	~GoodGay();
-
-	void visit1();
-
-	void visit2();
-
-	Building* building;
-};
-void visit();
-
-class Building
-{
-	friend void GoodGay::visit1();
-	friend void visit();
-public:
-	Building();
-	string livingroom;
-private:
-	string bedroom;
-};
-Building::Building()
-{
-	this->livingroom = "123";
-	this->bedroom = "789";
-}
-
-GoodGay::GoodGay()
-{
-	building = new (Building);
-}
-GoodGay::~GoodGay()
-{
-	delete(building);
-}
-
-void GoodGay::visit1()
-{
-	cout << building->livingroom << endl;
-	cout << building->bedroom << endl;
-}
-
-void GoodGay::visit2()
-{
-	cout << building->livingroom << endl;
-}
-
-void visit()
-{
-	GoodGay gg;
-	gg.building->livingroom = "234";
-	gg.building->bedroom = "876";
-	cout << gg.building->bedroom << endl;
-}
-
-void test()
-{
-	GoodGay gg;
-	gg.visit1();
-}
-
-int main()
-{
-	visit();
-	test();
-	return 0;
-}
-class Person;
-
-class Person
-{
-public:
-	//Person operator+ (Person& p)
-	//{
-	//	Person temp;//创建的临时变量
-	//	temp.m_A = this->m_A + p.m_A;//this-》p1 + p2 中的前面一个p1
-	//	temp.m_B = this->m_B + p.m_B;//p.m_B 就是后面的那个
-	//	return temp;
-	//}
-	int m_A;
-	int m_B;
-};
-
-Person operator+ (Person& p1, Person& p2)
-{
-	Person temp;//创建的临时变量
-	temp.m_A = p1.m_A + p2.m_A;//this-》p1 + p2 中的前面一个p1
-	temp.m_B = p1.m_B + p2.m_B;//p.m_B 就是后面的那个
-	return temp;
-}p
-
-void test()
-{
-	Person p1;
-	p1.m_A = 10;
-	p1.m_B = 20;
-	Person p2;
-	p2.m_A = 100;
-	p2.m_B = 200;
-	Person p3 = p1 + p2;
-	cout << p3.m_A << endl;
-	cout << p3.m_B << endl;
-}
-
-
-int main()
-{
-	test();
-	return 0;
-}
-
+//class My_Integer
+//{
+//	friend ostream& operator<< (ostream& cout, My_Integer num);
+//public:
+//	My_Integer()
+//	{
+//		m_Num = 0;
+//	}
+//	My_Integer& operator++()
+//	{
+//		m_Num++;
+//		return *this;
+//	}
+//
+//	My_Integer operator++(int)
+//	{
+//		My_Integer temp = *this;
+//		m_Num++;
+//		return temp;
+//	}
+//
+//private:
+//	int m_Num;
+//};
+//
+//ostream& operator<< (ostream& cout, My_Integer num)
+//{
+//	cout << num.m_Num;
+//	return cout;
+//}
+//
+//void test()
+//{
+//	My_Integer num;
+//	cout << ++num << endl;
+//
+//
+//	cout << num++ << endl;
+//	cout << num << endl;
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+////}
+//
+//class Person
+//{
+//public:
+//	Person(int age)
+//	{
+//		m_Age = new int(age);
+//	}
+//
+//	Person& operator=(Person &p)
+//	{
+//		if (m_Age != NULL)
+//		{
+//			delete m_Age;
+//			m_Age = NULL;
+//		}
+//		m_Age = new int(*p.m_Age);
+//		return *this;
+//	}
+//
+//	~Person()
+//	{
+//		if (m_Age != NULL)
+//		{
+//			delete(m_Age);
+//			m_Age = NULL;
+//		}
+//    }
+//
+//
+//	int* m_Age;
+//};
+//
+//void test()
+//{
+//	Person p1(10);
+//	Person p2(20);
+//	Person p3(30);
+//	p2 = p1 = p3;
+//	cout << *p2.m_Age << endl;
+//	cout << *p1.m_Age << endl;
+//	cout << *p3.m_Age << endl;
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//
+//class Person
+//{
+//public:
+//	Person(string name, int age)
+//	{
+//		m_Name = name;
+//		this->m_Age = age;
+//	}
+//
+//	bool operator==(Person& p)
+//	{
+//		if (this->m_Age == p.m_Age && this->m_Name == p.m_Name)
+//			return true;
+//		return false;
+//	}
+//
+//	bool operator!=(Person& p)
+//	{
+//		if (this->m_Age == p.m_Age && this->m_Name == p.m_Name)
+//			return false;
+//		return true;
+//	}
+//
+//	string m_Name;
+//	int m_Age;
+//};
+//
+//void test()
+//{
+//	Person p1("Tom", 18);
+//	Person p2("Jerry", 18);
+//
+//	if (p1 == p2)
+//		cout << "Yes" << endl;
+//	else
+//		cout << "No" << endl;
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+//class Person
+//{
+//public:
+//	void operator()(string test)
+//	{
+//		cout << test << endl;
+//	}
+//};
+//
+//
+//int main()
+//{
+//	Person p1;
+//	p1("Hello Wrold");
+//	return 0;
+//}
 #include <iostream>
 using namespace std;
+//
+//class Base
+//{
+//public:
+//	void wide()
+//	{
+//		cout << "你好" << endl;
+//	}
+//};
+//
+//class Java : public Base
+//{
+//public:
+//	void content()
+//	{
+//		cout << "Java" << endl;
+//	}
+//};
+//
+//class Cpp : public Base
+//{
+//public:
+//	void content()
+//	{
+//		cout << "Cpp" << endl;
+//	}
+//};
+//
+//
+//
+//int main()
+//{
+//	Java java;
+//	java.wide();
+//	java.content();
+//	Cpp cpp;
+//	cpp.wide();
+//	cpp.content();
+//
+//	return 0;
+//}
 
-class Person
+
+//
+//class Son1 : Base
+//{
+//public:
+//	void func()
+//	{
+//		this->m_A = 10;
+//		this->m_B = 20;
+//	}
+//};
+//
+//class Son2 : Base
+//{
+//public:
+//	void func()
+//	{
+//		this->m_A = 100;
+//		this->m_B = 600;
+//	}
+//};
+
+//class Base
+//{
+//public:
+//	Base()
+//	{
+//		cout << "base" << endl;
+//	}
+//	void func()
+//	{
+//
+//	}
+//	int m_A;
+//protected:
+//	int m_B;
+//private:
+//	int m_C;
+//};
+//
+//class Son : public Base
+//{
+//public:
+//	Son()
+//	{
+//		cout << "son" << endl;
+//	}
+//	int m_D;
+//};
+//
+//void test()
+//{
+//	Son s;
+//	cout << sizeof(s) << endl;
+//}
+//
+//int main()int 
+//{
+//	test();
+//	return 0;
+//}
+
+//class Base
+//{
+//public:
+//	static int m_A;
+//};
+//int Base::m_A = 100;
+//
+//class Son : public Base
+//{
+//public:
+//	static int m_A;
+//};
+//int Son::m_A = 200;
+//
+//int main()
+//{
+//	cout << Son::Base::m_A << endl;
+//	return 0;
+//}
+
+class Animal
 {
-	friend	ostream& operator<< (ostream& cout, Person& p);
 public:
-	Person()
-	{
-		this->m_A = 10;
-		this->m_B = 20;
-	}
-private:
-
-	int m_A;
-	int m_B;
+	int m_Age;
 };
 
-ostream& operator<< (ostream &cout ,Person& p)
-{
-	cout << p.m_A << endl;
-	cout << p.m_B << endl;
-	return cout;
-}
+class Sheep : public Animal{};
 
-void test()
+class Camel : public Animal{};
+
+class SheepCamel : public Sheep, public Camel
 {
-	Person p;
-	cout <<  p << endl;
-}
+public:
+};
 
 int main()
 {
-	test();
-	return 0;
-}
-
-class My_Integer
-{
-	friend ostream& operator<< (ostream& cout, My_Integer num);
-public:
-	My_Integer()
-	{
-		m_Num = 0;
-	}
-	My_Integer& operator++()
-	{
-		m_Num++;
-		return *this;
-	}
-
-	My_Integer operator++(int)
-	{
-		My_Integer temp = *this;
-		m_Num++;
-		return temp;
-	}
-
-private:
-	int m_Num;
-};
-
-ostream& operator<< (ostream& cout, My_Integer num)
-{
-	cout << num.m_Num;
-	return cout;
-}
-
-void test()
-{
-	My_Integer num;
-	cout << ++num << endl;
-
-
-	cout << num++ << endl;
-	cout << num << endl;
-}
-
-int main()
-{
-	test();
+	SheepCamel a;
+	a.Sheep::m_Age;
+	a.Camel::m_Age;
 	return 0;
 }
