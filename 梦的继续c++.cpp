@@ -1487,25 +1487,543 @@ using namespace std;
 //	return 0;
 //}
 
-class Animal
-{
-public:
-	int m_Age;
-};
+//class Animal
+//{
+//public:
+//	int m_Age;
+//};
+//
+//class Sheep : public Animal{};
+//
+//class Camel : public Animal{};
+//
+//class SheepCamel : public Sheep, public Camel
+//{
+//public:
+//};
+//
+//int main()
+//{
+//	SheepCamel a;
+//	a.Sheep::m_Age;
+//	a.Camel::m_Age;
+//	return 0;
+//}
+//
+//class Animal
+//{
+//public:
+//	virtual void speak()
+//	{
+//		cout << "aoaoao" << endl;
+//	}
+//
+//};
+//
+//class Cat : public Animal
+//{
+//public:
+//	 void speak()
+//	{
+//		cout << "miaomiaomiao" << endl;
+//	}
+//};
+//
+//void dospeak(Animal& animal)
+//{
+//	animal.speak();
+//}
+//
+//void test()
+//{
+//	Cat cat;
+//	dospeak(cat);
+//}
+//
+//int main()
+//{
+//	test();
+//
+//	return 0;
+//}
+//
+//class Calculator
+//{
+//public:
+//	virtual int opertor()
+//	{
+//		return 0;
+//	}
+//	int m_Num1 = 0;
+//	int m_Num2 = 0;
+//};
+//
+//class AddCalculator : public Calculator
+//{
+//public:
+//	int opertor()
+//	{
+//		return this->m_Num1 + this->m_Num2;
+//	}
+//};
+//
+//class SubCalculator : public Calculator
+//{
+//public:
+//	int opertor()
+//	{
+//		return this->m_Num1 - this->m_Num2;
+//	}
+//};
+//
+//class MulCalculator : public Calculator
+//{
+//public:
+//	int opertor()
+//	{
+//		return this->m_Num1 * this->m_Num2;
+//	}
+//};
+//
+//void test()
+//{
+//	Calculator* cal = new AddCalculator;
+//	cal->m_Num1 = 12;
+//	cal->m_Num2 = 11;
+//	cout << cal->m_Num1 << " + " << cal->m_Num2 << " = " << cal->opertor() << endl;
+//	delete cal;
+//	cal = new SubCalculator;
+//	cal->m_Num1 = 12;
+//	cal->m_Num2 = 11;
+//	cout << cal->m_Num1 << " - " << cal->m_Num2 << " = " << cal->opertor() << endl;
+//	delete cal;
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+//}
 
-class Sheep : public Animal{};
+//class Base
+//{
+//public:
+//	virtual void func() = 0;
+//};
+//
+//class Son : public Base
+//{
+//public:
+//	void func()
+//	{
+//		cout << "123" << endl;
+//	}
+//};
+//
+//int main()
+//{
+//	Base* base = new Son;
+//	base->func();
+//	delete base;
+//	return 0;
+//}
+//class Base
+//{
+//public:
+//	virtual void Boil() = 0;
+//
+//	virtual void Brew() = 0;
+//
+//	virtual void PourInCup() = 0;
+//
+//	virtual void PutSomething() = 0;
+//
+//	void makedrink()
+//	{
+//		Boil();
+//		this->Brew();
+//		this->PourInCup();
+//		this->PutSomething();
+//	}
+//};
+//
+//class Coffee : public Base
+//{
+//	 void Boil()
+//	 {
+//		cout << "1" << endl;
+//	 }
+//
+//    void Brew()
+//	{
+//		cout << "2" << endl;
+//	}
+//
+//    void PourInCup()
+//	{
+//		cout << "3" << endl;
+//	}
+//
+//	void PutSomething()
+//	{
+//		cout << "4" << endl;
+//	}
+//};
+//
+//class Tea : public Base
+//{
+//	void Boil()
+//	{
+//		cout << "5" << endl;
+//	}
+//
+//	void Brew()
+//	{
+//		cout << "6" << endl;
+//	}
+//
+//	void PourInCup()
+//	{
+//		cout << "7" << endl;
+//	}
+//
+//	void PutSomething()
+//	{
+//		cout << "8" << endl;
+//	}
+//};
+//
+//void doDrink(Base* base)
+//{
+//	base->makedrink();
+//	delete base;
+//}
+//
+//void test()
+//{
+//	doDrink(new Coffee);
+//	cout << "------------" << endl;
+//	doDrink(new Tea);
+//}
+//
+//int main()
+//{
+//	test();
+//	return 0;
+////}
+//
+//class Animal
+//{
+//public:
+//	Animal()
+//	{
+//		cout << "构造Animal" << endl;
+//	}
+//
+//	virtual void speak() = 0;
+//
+//	virtual ~Animal() = 0;
+//	//{
+//	//	cout << "析构Animal" << endl;
+//	//}
+//};
+//
+//Animal::~Animal()
+//{
+//	cout << "xigouAnimal" << endl;
+//}
+//
+//class Cat : public Animal
+//{
+//public:
+//	Cat(string name)
+//	{
+//		m_Name = new string(name);
+//		cout << "构造Cat" << endl;
+//	}
+//
+//	void speak()
+//	{
+//		cout << *m_Name << "miaomiao" << endl;
+//	}
+//
+//	~Cat()
+//	{
+//		if(m_Name != NULL)
+//		delete m_Name;
+//		m_Name = NULL;
+//		cout << "析构 cat" << endl;
+//	}
+//	
+//	string* m_Name;
+//};
+//
+//void test(Animal* animal)
+//{
+//	animal->speak();
+//	delete  animal;
+//}
+//
+//void test0()
+//{
+//	test(new Cat("Tom"));
+//}
+//
+//int main()
+//{
+//	test0();
+//	return 0;
+//}
 
-class Camel : public Animal{};
+//class CPU
+//{
+//public:
+//	virtual void calculate() = 0;
+//};
+//
+//class VideoCard
+//{
+//public:
+//	virtual void display() = 0;
+//};
+//
+//class Memory
+//{
+//public:
+//	virtual void storage() = 0;
+//};
+//
+//class Computer
+//{
+//public:
+//	Computer(CPU* cpu,VideoCard* vc,Memory* mem)
+//	{
+//		this->m_cpu = cpu;
+//		this->m_vc = vc;
+//		this->m_mem = mem;
+//	}
+//
+//	void dowork()
+//	{
+//		this->m_cpu->calculate();
+//		this->m_vc->display();
+//		this->m_mem->storage();
+//	}
+//
+//	~Computer()
+//	{
+//		if (this->m_cpu != NULL)
+//		{
+//			delete this->m_cpu;
+//			this->m_cpu = NULL;
+//		}
+//		if (this->m_vc != NULL)
+//		{
+//			delete this->m_vc;
+//			this->m_vc = NULL;
+//		}
+//		if (this->m_mem != NULL)
+//		{
+//			delete this->m_mem;
+//			this->m_mem = NULL;
+//		}
+//		
+//	}
+//private:
+//	CPU* m_cpu;
+//	VideoCard* m_vc;
+//	Memory* m_mem;
+//};
+//
+//class InternetCPU : public CPU
+//{
+//public:
+//	void calculate()
+//	{
+//		cout << "InternetCPU wroking" << endl;
+//	}
+//
+//};
+//
+//class InternetVideoCard : public VideoCard
+//{
+//public:
+//	void display()
+//	{
+//		cout << "InternetVideoCard wroking" << endl;
+//	}
+//
+//};
+//
+//class InternetMemory : public Memory
+//{
+//public:
+//	void storage()
+//	{
+//		cout << "InternetMemory wroking" << endl;
+//	}
+//
+//};
+//
+//void test()
+//{
+//	CPU* cpu = new InternetCPU;
+//	VideoCard* vc = new InternetVideoCard;
+//	Memory* mem = new InternetMemory;
+//
+//	Computer* Lenove = new Computer(cpu,vc,mem);
+//	Lenove->dowork();
+//
+//}
+//
+//
+//int main()
+//{
+//	test();
+//	system("pause");
+//	return 0;
+//}
 
-class SheepCamel : public Sheep, public Camel
-{
-public:
-};
+#include <iostream>
+using namespace std;
+#include <fstream>
+#include <string>
+
+//void test()
+//{
+//	ofstream ofs;
+//	ofs.open("test.txt", ios::out);
+//	ofs << "姓名：张三" << endl;
+//	ofs << "性别：男" << endl;
+//	ofs << "年龄：18" << endl;
+//	ofs.close();
+//}
+
+//void test()
+//{
+//	ifstream ifs;
+//	ifs.open("test.txt", ios::in);
+//	if (!ifs.is_open())
+//	{
+//		cout << "404 NOT FOUND" << endl;
+//		return;
+//	}
+//	//char buf[1024] = { 0 };
+//	//1
+//	/*while (ifs >> buf)
+//	{
+//		cout << buf << endl;
+//	}*/
+//
+//	//ifs >> buf;
+//	//cout << buf << endl;
+//
+//	//ifs >> buf;
+//	//cout << buf << endl;
+//
+//	//ifs >> buf;
+//	//cout << buf << endl;
+//
+//
+//	//2
+//	/*while (ifs.getline(buf, sizeof(buf)))
+//	{
+//		cout << buf << endl;
+//	}*/
+//
+//	////3.
+//	string buf;
+//	while (getline(ifs, buf))
+//	{
+//		cout << buf << endl;
+//	}
+//
+//	////4
+//	//char c;
+//	//while ((c = ifs.get()) != EOF)
+//	//{
+//	//	cout << c;
+//	//}
+//
+//	ifs.close();
+//
+//}
+//int main()
+//{
+//	test();
+//	return 0;
+//}
+
+//class Person
+//{
+//public:
+//	char m_Name[20];
+//	int m_Age;
+//};
+//
+//int main()
+//{
+//	/*ofstream ofs;
+//	ofs.open("test,txt", ios::out | ios::binary);
+//	Person p{"张三",18};
+//	ofs.write((const char*)&p, sizeof(Person));
+//	ofs.close();*/
+//
+//	ifstream ofs;
+//	ofs.open("test,txt", ios::out | ios::binary);
+//
+//	if (!ofs.is_open())
+//	{
+//		return 0;
+//	}
+//	Person p;
+//
+//	ofs.read((char*)&p, sizeof(Person));
+//
+//	cout << p.m_Name << " " << p.m_Age << endl;
+//	ofs.close();
+//
+//	return 0;
+//}
+
+#include "通讯录plus.h"
 
 int main()
 {
-	SheepCamel a;
-	a.Sheep::m_Age;
-	a.Camel::m_Age;
+	WorkerManager wm;
+	int num = 0;
+	do
+	{
+		wm.Meau();
+		cin >> num;
+		switch(num)
+		{
+		case 0:
+			cout << "欢迎下次使用" << endl;
+			break;
+		case 1:
+			wm.ADDWorker();
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		case 5:
+			break;
+		case 6:
+			break;
+		case 7:
+			break;
+		default:
+			cout << "输入错误，请重新输入" << endl;
+			break;
+		}
+		system("pause");
+		system("cls");
+	} while (num);
+	
 	return 0;
 }
+

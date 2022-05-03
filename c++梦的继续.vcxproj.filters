@@ -18,7 +18,7 @@
     <ClCompile Include="梦的继续c++.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="通讯录.cpp">
+    <ClCompile Include="通讯录plus.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="类.cpp">
@@ -26,7 +26,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="通讯录.h">
+    <ClInclude Include="通讯录plus.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="类.h">

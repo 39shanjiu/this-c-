@@ -141,11 +141,11 @@
   <ItemGroup>
     <ClCompile Include="梦的继续c++.cpp" />
     <ClCompile Include="类.cpp" />
-    <ClCompile Include="通讯录.cpp" />
+    <ClCompile Include="通讯录plus.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="类.h" />
-    <ClInclude Include="通讯录.h" />
+    <ClInclude Include="通讯录plus.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
