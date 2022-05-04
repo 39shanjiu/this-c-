@@ -38,7 +38,7 @@
 //{
 //	int a = 0;
 //	//cin >> a;
-//	//cout << a/2 << endl;
+//	cout << a/2 << endl;
 //	string s = "hello\0";
 //	cin.get(s);
 //	cout << s << endl;
@@ -1990,6 +1990,7 @@ using namespace std;
 
 int main()
 {
+
 	WorkerManager wm;
 	int num = 0;
 	do
@@ -2005,16 +2006,21 @@ int main()
 			wm.ADDWorker();
 			break;
 		case 2:
+			wm.Show_Enp();
 			break;
 		case 3:
+			wm.Del_Emp();
 			break;
 		case 4:
+			wm.Mod_Emp();
 			break;
 		case 5:
+			wm.F_Emp();
 			break;
 		case 6:
 			break;
 		case 7:
+			wm.Clean_Emp();
 			break;
 		default:
 			cout << "输入错误，请重新输入" << endl;
