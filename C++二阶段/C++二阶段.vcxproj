@@ -140,6 +140,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="c++二阶段.cpp" />
+    <ClCompile Include="模板.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="模板.hpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

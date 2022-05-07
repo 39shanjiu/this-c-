@@ -18,5 +18,13 @@
     <ClCompile Include="c++二阶段.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="模板.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="模板.hpp">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
