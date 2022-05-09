@@ -423,10 +423,260 @@ int main()
 //}
 #include <string.h>
 #include <algorithm>
+#include <vector>
+#include <deque>
+#include <list>
+#include <set>
+#include <map>
+//int main()
+//{
+//	/*string s = "hello wrold";
+//	cout << s.begin() << endl;*/
+//	vector<int>v;
+//	for (int i = 0; i < 6; i++)
+//		v.push_back(i + 1);
+//	del(v, sizeof(int), i);
+//	return 0; 
+//}
+
+class Player
+{
+public:
+	Player(string name, int score)
+	{
+		this->m_Name = name;
+		this->m_Score = score;
+	}
+
+	string m_Name;
+
+	int m_Score;
+};
+
+void creatPlayer(vector<Player>& v)
+{
+	for (int i = 0; i < 5; i++)
+	{
+		Player p("选手", 0);
+		p.m_Name += ('A' + i);
+		v.push_back(p);
+	}
+}
+
+void setScore(vector<Player>& v)
+{
+	for (int i = 0; i < v.size(); i++)
+	{
+		deque<int>queue;
+		for (int j = 0; j < 10; j++)
+		queue.push_back(rand() % 41 + 60);
+		sort(queue.begin(), queue.end());
+		queue.pop_back();
+		queue.pop_front();
+		int sum = 0;
+		for (int j = 0; j < queue.size(); j++)
+		sum += queue[i];
+		v[i].m_Score = sum / (int)queue.size();
+	}
+}
+
+void PlantPlayer(vector<Player>& v)
+{
+	for (int i = 0; i < v.size(); i++)
+		cout << "name:  " << v[i].m_Name << "\tScore:  " << v[i].m_Score << endl;
+}
+
+
+void test1()
+{
+	vector<Player>v;
+	creatPlayer(v);
+
+	setScore(v);
+
+	PlantPlayer(v);
+}
+
+void List()
+{
+	list<int>L1;
+	for (int i = 0; i < 10; i++)
+		L1.push_back(10 * i);
+	L1.insert(++L1.begin(),1000);
+	list<int>L2(L1.begin(),L1.end() );
+}
+
+//class Person
+//{
+//public:
+//	string m_Name;
+//	int m_Age;
+//};
+//
+//void test2()
+//{
+//	set<Person>s;
+//
+//}
+
+void test3()
+{
+	map<int, int>m;
+	m.insert(pair<int, int>(1, 10));
+	m.insert(pair<int, int>(5, 50));
+	m.insert(pair<int, int>(3, 30));
+	m.insert(pair<int, int>(4, 40));
+	for (int i = 1; i <= m.size(); ++i)
+		cout << m[i] << "  ";
+	for (map<int,int>::iterator it = m.begin(); it != m.end(); it++)
+	{
+		cout << it->first << "  " << it->second << "  " << endl;
+	}
+	map<int, int>m1(m);
+	for (map<int, int>::iterator it = m1.begin(); it != m1.end(); it++)
+	{
+		cout << it->first << "  " << it->second << "  " << endl;
+	}
+	map<int, int>m2 = m1;
+	for (map<int, int>::iterator it = m2.begin(); it != m2.end(); it++)
+	{
+		cout << it->first << "  " << it->second << "  " << endl;
+	}
+
+}
+
+class Emplayee
+{
+public:
+	Emplayee(string name, int salary)
+	{
+		this->m_Name = name;
+		this->m_Salary = salary;
+	}
+
+	
+
+	string m_Name;
+
+	int m_Salary;
+
+	string m_Branch;
+
+	int m_Size;
+};
+
+void operator<<(ostream& cout,Emplayee& p)
+{
+	cout << "姓名: " << p.m_Name << "\t所属部门: " << p.m_Branch << "\t薪资: " << p.m_Salary << endl;;
+}
+
+void CreatEmplayee(vector<Emplayee>& v)
+{
+	for (int i = 0; i < 10; ++i)
+	{
+		string s = "ABCDEFGHIJ";
+		string name = "员工";
+		name += s[i];
+		Emplayee p(name, 0);
+		v.push_back(p);
+	}
+}
+
+void DisEmp(vector<Emplayee>&v,multimap<int,Emplayee>&m)
+{
+	for (int i = 0; i < v.size(); ++i)
+	{
+		v[i].m_Size = rand() % 3 + 1;
+		switch (v[i].m_Size)
+		{
+		case 2:
+			v[i].m_Branch = "研发";
+			v[i].m_Salary = rand() % 5000 + 8000;
+			break;
+		case 3:
+			v[i].m_Branch = "策划";
+			v[i].m_Salary = rand() % 5000 + 5000;
+			break;
+		case 1:
+			v[i].m_Branch = "美术";
+			v[i].m_Salary = rand() % 5000 + 11000;
+			break;
+		default:
+			break;
+		}
+		m.insert(pair<int,Emplayee>(v[i].m_Size,v[i]));
+	}
+}
+
+void PrintEmp(multimap<int, Emplayee>& m)
+{
+	for (multimap<int, Emplayee>::iterator it = m.begin(); it != m.end(); ++it)
+	{
+		cout << it->second;
+	}
+}
+
+void test4()
+{
+	vector<Emplayee>v;
+	multimap<int, Emplayee>m;
+	CreatEmplayee(v);
+	DisEmp(v, m);
+	PrintEmp(m);
+	//v[0].m_Size = 1;
+	//v[0].m_Salary = 3000;
+	//v[0].m_Branch = "美术";
+	//cout << v[0];
+}
+
+void Build_Tree(int arr[], int tree[], int end, int start, int node)
+{
+	if (end == start)
+	tree[node] = arr[end];
+	else {
+		int mid = (start + end) / 2;
+		int node_left  = node * 2 + 1;
+		int node_right = node * 2 + 2;
+
+		Build_Tree(arr, tree, mid, start, node_left);
+		Build_Tree(arr, tree, end, mid + 1, node_right);
+		tree[node] = tree[node_left] + tree[node_right];
+	}
+}
+
+void updata_tree(int arr[], int tree[], int end, int start, int node, int idx, int val) {
+	if (end == start && end == idx)
+	{
+		arr[idx] = val;
+		tree[node] = arr[idx];
+	}
+	else {
+		int mid = (start + end) / 2;
+		if (idx > mid)
+		updata_tree(arr, tree, end, mid + 1, 2 * node + 2, idx, val);
+		else 
+		updata_tree(arr, tree, mid,start, 2 * node + 1, idx, val);
+		tree[node] = tree[2 * node + 1] + tree[2 * node + 2];
+	}
+}
+
+void test()
+{
+	int arr[] = { 1,3,5,7,9,11 };
+	int size = 6;
+	int tree[15] = { 0 };
+
+	Build_Tree(arr, tree, size - 1, 0, 0);
+
+	updata_tree(arr, tree, size - 1, 0, 0, 4, 6);
+	for (int i = 0; i < 15; i++)
+	{
+		cout << tree[i] << " ";
+	}
+}
 
 int main()
 {
-	string s = "hello wrold";
-	cout << s.begin() << endl;
+	test();
 	return 0;
 }
