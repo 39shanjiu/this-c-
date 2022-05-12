@@ -798,6 +798,7 @@ void test()
 int main()
 {
 	test();
+	vector<int>v;
 	return 0;
 }
 
