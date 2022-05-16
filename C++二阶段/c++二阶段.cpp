@@ -762,43 +762,208 @@ using namespace std;
 //	//return ans;
 //	return 0;
 //}
+//
+//class five
+//{
+//public:
+//	bool operator() (int val)
+//	{
+//		return val > 5;
+//	}
+//};
+//
+//void test1()
+//{
+//	vector<int>v;
+//	for (int i = 0; i < 10; ++i)
+//		v.push_back(i);
+//	if (v.end() != find_if(v.begin(), v.end(), five()))
+//		cout << "Yes" << endl;
+//}
+//void test()
+//{
+//	vector<int>v1;
+//	vector<int>v2;
+//	for (int i = 0; i < 5; ++i)
+//	{
+//		v1.push_back(i);
+//		v2.push_back(2 + i);
+//	}
+//	merge(v1.begin(), v1.end(), v2.begin(), v2.begin() + 5, v2.begin());
+//	for (int i = 0; i < v2.size(); ++i)
+//	cout << v2[i] << "  ";
+//	cout << endl;
+//}
+//
+//int main()
+//{
+//	test();
+//	vector<int>v;
+//	return 0;
+//}
+//
+//int main()
+//{
+//	while (sum)
+//	{
+//		vector<int>divf(26);
+//		int max = 0;
+//		for (int i = 0; i < stickers.size(); ++i)
+//		{
+//			vector<int>fv(26);
+//			int count = 0;
+//			for (int j = 0; j < stickers[i].size(); ++j)
+//			{
+//				int a = stickers[i][j] - 'a';
+//				fv[a]++;
+//				if (fv[a] <= v[a])
+//					count++;
+//			}
+//			if (count > max)
+//			{
+//				max = count;
+//				divf = fv;
+//			}
+//		}
+//		for (int i = 0; i < 26; ++i)
+//		{
+//			if (v[i] == 0)
+//				continue;
+//			int a = v[i] - divf[i];
+//			if (a < 0)
+//				a = 0;
+//			v[i] = a;
+//		}
+//		num++;
+//		sum = 0;
+//		for (int i = 0; i < 26; ++i)
+//			sum += v[i];
+//	}
+//	int n, d;
+//	long p;
+//	cin >> n;
+//	cin >> d;
+//	cin >> p;
+//	vector<int>v;
+//	for (int i = 0; i < n; ++i)
+//	{
+//		int num;
+//		cin >> num;
+//		v.push_back(num);
+//	}
+//	int len = 0;
+//	long sum = 0;
+//
+//	return 0;
+//}
+#include <queue>
 
-class five
+void Set_D(int arr[9][9], int i, int j, int val)
 {
-public:
-	bool operator() (int val)
-	{
-		return val > 5;
-	}
-};
-
-void test1()
-{
-	vector<int>v;
-	for (int i = 0; i < 10; ++i)
-		v.push_back(i);
-	if (v.end() != find_if(v.begin(), v.end(), five()))
-		cout << "Yes" << endl;
+	arr[i][j] = val;
+	arr[j][i] = val;
 }
-void test()
+
+void Floyd(int D[9][9], int P[9][9])
 {
-	vector<int>v1;
-	vector<int>v2;
-	for (int i = 0; i < 5; ++i)
+	for (int i = 0; i < 9; ++i)
 	{
-		v1.push_back(i);
-		v2.push_back(2 + i);
+		for (int j = 0; j < 9; ++j)
+			P[i][j] = j;
 	}
-	merge(v1.begin(), v1.end(), v2.begin(), v2.begin() + 5, v2.begin());
-	for (int i = 0; i < v2.size(); ++i)
-	cout << v2[i] << "  ";
-	cout << endl;
+	for (int k = 0; k < 9; ++k)
+	{
+		for (int i = 0; i < 9; ++i)
+		{
+			for (int j = 0; j < 9; ++j)
+			{
+				if (D[i][j] > D[i][k] + D[k][j])
+				{
+					D[i][j] = D[i][k] + D[k][j];
+					P[i][j] = P[i][k];
+				}
+			}
+		}
+	}
+}
+
+void Find_for(int P[9][9], int se, int de)
+{
+	for(int i = 1;i < 9;++i)
+	{
+		cout << se << " -> ";
+		se = P[se][de];
+		if (se == de)
+			break;
+	}
+	cout << de;
+}
+
+void Dijkstra(int D[9][9], int se, int de,int P[9])
+{
+	queue<int>q;
+	for (int i = 0; i < 9; ++i)
+	{
+		if (D[se][i] < 100 && i != se)
+			q.push(i);
+	}
+	while (se != de)
+	{
+
+	}
 }
 
 int main()
 {
-	test();
-	vector<int>v;
+	int D[9][9] = { 0 };
+	for (int i = 0; i < 9; ++i)
+	{
+		for (int j = 0; j < 9; ++j)
+		{
+			D[i][j] = 100;
+			if (i == j)
+				D[i][j] = 0;
+		}
+	}
+	Set_D(D, 0, 1, 1);
+	Set_D(D, 0, 2, 5);
+	Set_D(D, 2, 1, 3);
+	Set_D(D, 3, 1, 7);
+	Set_D(D, 4, 1, 5);
+	Set_D(D, 4, 2, 1);
+	Set_D(D, 5, 4, 3);
+	Set_D(D, 3, 4, 2);
+	Set_D(D, 3, 6, 3);
+	Set_D(D, 4, 6, 6);
+	Set_D(D, 7, 4, 9);
+	Set_D(D, 7, 6, 2);
+	Set_D(D, 5, 7, 5);
+	Set_D(D, 8, 6, 7);
+	Set_D(D, 7, 8, 4);
+	Set_D(D, 2, 5, 7);
+
+	int P[9] = { 0 };
+	Dijkstra(D, 0, 8,P);
+	/*for (int i = 0; i < 9; ++i)
+	{
+		for (int j = 0; j < 9; ++j)
+			cout << D[i][j] << "\t ";
+		cout << endl;
+	}*/
+	//Floyd(D, P);
+	//Find_for(P, 8, 0);
+	/*for (int i = 0; i < 9; ++i)
+	{
+		for (int j = 0; j < 9; ++j)
+			cout << D[i][j] << "\t ";
+		cout << endl;
+	}
+	cout << endl;
+	for (int i = 0; i < 9; ++i)
+	{
+		for (int j = 0; j < 9; ++j)
+			cout << P[i][j] << "\t ";
+		cout << endl;
+	}*/
 	return 0;
 }
-

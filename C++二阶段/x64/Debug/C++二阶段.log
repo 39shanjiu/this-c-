@@ -1,2 +1,2 @@
 ﻿  c++二阶段.cpp
-LINK : fatal error LNK1201: 写入程序数据库“C:\C语言\c++梦的继续\C++二阶段\x64\Debug\C++二阶段.pdb”时出错；请检查是否是磁盘空间不足、路径无效或权限不够
+  C++二阶段.vcxproj -> C:\C语言\c++梦的继续\C++二阶段\x64\Debug\C++二阶段.exe
